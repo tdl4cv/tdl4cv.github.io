@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>TDLCV: Workshop on Topological Deep Learning for Computer Vision</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="keywords" content="CVPR, 2024, topology, geometry, computer vision, topological deep learninng, TDL, TDA, Workshop, CVPR Workshop">
+        <meta name="description" content="TDL4CV is the first workshop that focuses on the connections between topological machine (deep) learning and computer vision.">
+        <meta name="author" content="Tolga Birdal">
+        <meta name="viewport" content="width=device-width, initial-scale=0.75">
+        <meta http-equiv="Cache-control" content="public" max-age="86400">
+
+		<!--== CSS Files ==-->
+		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/style.min.css" rel="stylesheet" media="screen">
+		<link href="css/animate.min.css" rel="stylesheet" media="screen">
+		<link href="css/font-awesome.css" rel="stylesheet" media="screen">
+		<link href="css/flexslider.css" rel="stylesheet" media="screen">
+		<link href="css/fancySelect.css" rel="stylesheet" media="screen">
+		<link href="css/owl.carousel.css" rel="stylesheet" media="screen">
+		<link href="css/responsive.css" rel="stylesheet" media="screen">
+		<link href="css/paper.css" rel="stylesheet" media="screen">
+
+		<!--== Google Fonts ==-->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-98679125-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<div id="home"></div>
+		<header id="header" class="header" data-stellar-ratio="0.5">
+			<div id="preloader"><div class="preloader"></div></div>
+			<div class="header-caption" data-stellar-ratio="2">
+				<div class="container">
+					<div class="box">
+                        <h2w>In Conjunction with CVPR 2024<br/></h2w>
+						<span class="typed"></span>
+					</div>
+				</div>
+			</div>
+
+			<div id="header-background" class="header-background">
+				<ul class="slides">
+                    <li><img src="images/TDL4CV.jpg" alt="CVPR Workshop 2024 - TDL4CV2024"></li>
+                    <!--<li><img src="images/demo/bg-slide-02.jpg" alt="Slide 2"></li>-->
+				</ul>
+			</div>
+
+		</header>
+
+		<div id="navigation-wrap" class="navigation-wrap">
+			<div id="navigation" class="navigation">
+				<div class="container">
+					<nav class="navbar navbar-custom" role="navigation">
+
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+
+						<!--== Site Menu ==-->
+						<div class="collapse navbar-collapse" id="menu">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#home">Home</a></li>
+                                <li><a href="#goals">Thema</a></li>
+                                <li><a href="#speakers">Speakers</a></li>
+								<li><a href="#schedule">Schedule</a></li>
+								<li><a href="#papers">Poster Session</a></li>
+								<li><a href="#organizers">Organizers</a></li>
+								<li><a href="#faq">FAQ</a></li>
+								<li><a href="#news">News</a></li>
+								<li><a href="#location">Location</a></li>
+							</ul>
+						</div>
+
+					</nav>
+				</div>
+			</div>
+		</div>
+
+		<div class="container content">
+
+
+
+			<!--===============================-->
+			<!--== About ======================-->
+			<!--===============================-->
+			<section id="about">
+				<div class="row">
+					<div class="col-sm-12 col-md-2">
+						<div class="section-header text-left">
+                            <img src="images/demo/TDL4CVlogo.jpeg" alt="CVPR Workshop TDL4CV 2024">
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-8">
+						<p>
+						Objects and concepts underlying our environments are frequently defined in relation to one another as well as to other entities. Encoding various kinds of relationships, graphs offer a unifying, natural representation for many forms of data. As such, they sit at the heart of modern computer vision. For instance, scene graphs, correspondence graphs, pose graphs or part graphs are all relational structures heavily used in computer vision. To work with these relational structures, modern, data-driven computer vision methods emerged and are gathered under the umbrella of geometric deep learning. Especially, graph neural networks aim to make learning native to these graph data structures. 
+						
+						<p></p>Unfortunately, summarising our complex environments and interactions with a simple bag of pairwise relationships (e.g. graphs) is an oversimplification. Oftentimes, data would involve <b>multi-way (n-ary) connections that relate not just pairs of concepts / objects but rather families or groups of nodes</b>. In such cases, we are rather interested in <b>higher-order relationships</b>. Examples include 3D triangular or tetrahedral meshes, multi-agent trajectories, and hierarchical, semantic correspondences. Additionally, such higher-order relationships not only naturally emerge in our everyday environments, but also within the computational graphs of neural networks, in the intricacies of road traffic, between the neurons in our brain, as well as in the structure of molecules or proteins. 
+						
+						<b>Topology</b> (and related fields of mathematics) offers a principled, novel way to <b>work with higher-order relations within the data</b> under interrogation. Based on the principles of topology, Topological Deep Learning (TDL) is becoming a rapidly growing frontier that leverages generalisation of graphs, such as simplicial complexes, cell complexes, and hypergraphs, to extract more global information from data, <b>generalising most data domains encountered in scientific computations</b>. Deep learning models developed to learn from data supported on these topological domains constitute the essence of TDL, which facilitates the analysis of higher-order network data, enabling the representation of relations between multiple entities. Consequently, computational models supported on these higher-order domains offer the possibility to tackle novel applications across various fields, such as computer vision. On the other hand, TDL also encapsulates tools of topology that are used to characterise deep neural networks. For instance, it is known that the topology of training dynamics is highly correlated to generalisation performance. 
+
+						<p><b>What is topological deep learning?</b></p>
+							Topological deep learning (TDL) is a rapidly evolving field that uses topological features to understand and design deep learning models. TDL may complement graph representation learning and geometric deep learning by incorporating topological concepts, and can thus provide a natural choice for various machine learning settings, especially in computer vision.
+							
+							TDL focuses on learning directly on topological spaces. In the domains of vision and graphics, these spaces often manifest naturally as 3D point clouds, graphs, or meshes, either acquired in the real world through 3D sensors or designed in computer-aided design software. To date, the field has distinctly differentiated between these data representations, with the optimal choice often remaining elusive and highly dependent on the specific application. The lack of a unifying representation has led vision and graphics researchers to develop specialized architectures for different data types. Examples include PointNet for point clouds, MeshCNN for meshes and 3D GCNs for spatial graphs. Limited efforts have been made to consider a unified domain approach.
+                            <p></p>
+                        
+                        <p></p>
+                        <p><b>Why organize TDL4CV now?</b></p>
+                        We believe that going forward we need to rethink how we model relationships intrinsic in data we use. We are confronted everyday with the fact that state-of-the-art methods neglect this important bit. Hence we like to bring attention to higher-oder modeling and its potential in computer vision.						
+						<p></p>
+
+						<p><b>What will the workshop aim, briefly?</b></p>
+						We will introduce TDL and its current state. We will discuss open problems and promising research avenues in TDL, ranging from practical benefits in computer vision to theoretical foundations. Thereby, we will invite the scientific community to actively participate in TDL research to unlock the potential of this emerging field.
+						<p></p>
+						
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<div class="number wow bounceIn" data-wow-duration="0.8s" data-wow-delay="0.5s">
+							<b class="accent">5</b>
+							Speakers
+						</div>
+					</div>
+					<div class="col-xs-6 col-md-2">
+						<div class="number wow bounceIn" data-wow-duration="0.8s" data-wow-delay="0.8s">
+							<b class="accent">1</b>
+							Day
+						</div>
+					</div>
+				</div>
+			</section>
+            <section id="goals">
+				<div class="row">
+                    <div class="col-sm-12 col-md-2">
+						<div class="section-header text-left">
+							<h2><b>Goals</b></h2>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-12">
+						The first of its kind, our workshop, TDLCV, will be dedicated to bringing together industry experts, academic researchers, and practitioners from computer vision and machine learning communities into a lively environment for discussing methodologies and challenges raised in exploiting these new learning machines. TDLCV aims to foster fruitful interactions and cross-pollination of ideas, contributing to the advancement of TDL and opening up new vistas for computer vision. As a targeted topic venue, this workshop will offer participants a unique opportunity to network with a diverse but focused research community, around the following focus areas:
+
+                        The goal of this workshop is to <b>introduce topological deep learning to the realm of computer vision </b> and foster the formation of a community dedicated to advancing computer vision via this new machinery of learning. A concrete summary of the aims are as follows:
+                        <ul style="list-style-type:none; text-align:left;">
+						<li> Define and introduce Topological Deep Learning in connection to computer vision</li>
+                        <li> Identify computer vision problems that can be benefit from the premises of topological deep learning such as modelling higher order relations</li>
+                        <li> Showcase recent and ongoing progress in TDL and its applications</li>
+                        <li> Explore and discuss current landscape of available datasets facilitating the modelling of higher order relations in TDL</li>
+                        <li> Address and discuss the current state-of-the art, limitations therein, expected progress and its impact on the computer vision world</li>
+                        <li> Enlighten the community to attract further researchers in this direction</li>
+						</ul>
+                        Focal points for discussions and talks include but are not limited to:
+                        <ul style="list-style-type:none; text-align:left;">
+                            <li> Applications of topological neural networks in (3D) computer vision</li>
+                            <li> Topological neural network architectures</li>
+                            <li> Higher-order network datasetsL</li>
+                            <li> Generative topological neural networks</li>
+                            <li> Topological representation learning</li>
+                            <li> Probabilistic topological deep learning models</li>
+                            <li> Theoretical foundations of topological deep learning</li>
+                            <li> Data-driven topological analysis for computer vision.</li>
+						</ul>
+					</div>
+                </div>
+			</section>
+			<!--===============================-->
+			<!--== Speakers ===================-->
+			<!--===============================-->
+			<section id="speakers" class="wow bounceInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="section-header text-center">
+							<h2>Our <b>speakers</b></h2>
+							<p>Our invited speakers come from top research institutions and companies around the globe, and are leading figures in the topics covered by the workshop. This diverse selection will prove valuable for academic as well as industry researchers and practitioners. Both practical and theoretical aspects of quantum computing and its use in computer vision will be covered by the invited lecturers. We will make a selection out of the confirmed speakers, with a potential to include unconfirmed speakers. Both of these are listed below.</p>
+						</div>
+					</div>
+				</div>
+				<!--<div class="row">
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/speakers/TJ.png" alt="<Tat-Jun Chin">
+							<div class="speaker-info">
+								<h3>Tat-Jun<br> <b>Chin</b></h3>
+								<p>Professor<br>University of Adalaide</p>
+							</div>
+							<ul class="speaker-contacts">
+                                <li><a target="_blank" href="https://cs.adelaide.edu.au/~ssl/" class="fa fa-home"></a></li>
+								<li><a target="_blank" href="https://www.linkedin.com/in/tjchin/?originalSubdomain=au" class="fa fa-linkedin"></a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="col-sm-6 col-md-3 ">
+                        <div class="speaker">
+							<img src="images/demo/speakers/victoria.jpeg" alt="<Victoria Horan Goliber">
+							<div class="speaker-info">
+								<h3>Victoria<br> <b>Horan Goliber</b></h3>
+								<p>Global Head of Tech. Sales<br>D-Wave</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://www.linkedin.com/in/victoria-goliber/" class="fa fa-linkedin"></a></li>
+							</ul>
+						</div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/speakers/bondesan.jpeg" alt="<Roberto Bondesan">
+							<div class="speaker-info">
+								<h3>Roberto<br> <b>Bondesan</b></h3>
+								<p>Senior Lecturer<br>Imperial College London</p>
+							</div>
+							<ul class="speaker-contacts">
+                                <li><a target="_blank" href="https://www.imperial.ac.uk/people/r.bondesan" class="fa fa-home"></a></li>
+								<li><a target="_blank" href="https://github.com/rbondesan" class="fa fa-github"></a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="col-sm-6 col-md-3 ">
+                        <div class="speaker">
+							<img src="images/demo/speakers/anand.gif" alt="<Anand Rangarajan">
+							<div class="speaker-info">
+								<h3>Anand<br> <b>Rangarajan</b></h3>
+								<p>Professor<br>University of Florida</p>
+							</div>
+							<ul class="speaker-contacts">
+                                <li><a target="_blank" href=" https://www.cise.ufl.edu/~anand" class="fa fa-home"></a></li>
+							</ul>
+						</div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/speakers/michael-moeller.png" alt="Michael Moeller">
+							<div class="speaker-info">
+								<h3>Michael<br> <b>Moeller</b></h3>
+								<p>Professor<br>University of Siegen</p>
+							</div>
+							<ul class="speaker-contacts">
+                                <li><a target="_blank" href="https://www.vsa.informatik.uni-siegen.de/en/moeller-michael" class="fa fa-home"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>-->
+			</section>
+			<!--==========-->
+        
+			<section id="schedule" class="wow bounceInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="section-header text-left">
+							<h2>The <b>schedule</b></h2>
+							<p>We have a packed and exciting day ahead of us!</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="content-tabs">
+							<div class="tab-content">
+								<div class="tab-pane fade in active" id="tab1">
+									<ul class="accordion">
+										<li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													13<sup>00</sup>
+												</span>
+												<h4 class="accordion-title">Opening Remarks</h4>
+											</a>
+                                            <div class="accordion-body">
+												<p>
+													Good morning everybody! We gladly welcome you to our first workshop, TDL4CV 2024.
+                                                    Opening remark will be held by Tolga Birdal.
+												</p>
+											</div>
+										</li>
+										<li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													13<sup>15</sup>
+												</span>
+												<div class="schedule-speaker">
+													<img src="images/demo/speakers/speaker.jpg" alt="Speaker">
+												</div>
+												<h4 class="accordion-title">Invited talk by <b>...</b></h4>
+											</a>
+										</li>
+										<li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													14<sup>00</sup>
+												</span>
+												<div class="schedule-speaker">
+													<img src="images/demo/speakers/speaker.jpg" alt="Speaker">
+												</div>
+												<h4 class="accordion-title">Invited talk by <b>...</b></h4>
+											</a>
+										</li>
+										<li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													14<sup>45</sup>
+												</span>
+												<h4 class="accordion-title">Morning  Coffee Break and Invited Poster Session</h4>
+											</a>
+											<div class="accordion-body">
+												<p>
+													We are proudly serving French coffee to accompany fruitful discussions.
+												</p>
+											</div>
+										</li>
+                                        <li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													15<sup>30</sup>
+												</span>
+												<div class="schedule-speaker">
+													<img src="images/demo/speakers/speaker.jpg" alt="Speaker">
+												</div>
+												<h4 class="accordion-title">Invited talk by <b>Speaker</b></h4>
+											</a>
+										</li>
+										<li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													16<sup>15</sup>
+												</span>
+												<div class="schedule-speaker">
+													<img src="images/demo/speakers/speaker.jpg" alt="Speake">
+												</div>
+												<h4 class="accordion-title">Invited talk by <b>...</b></h4>
+											</a>
+										</li>
+										<li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													17<sup>00</sup>
+												</span>
+												<div class="schedule-speaker">
+													<img src="images/demo/speakers/speaker.jpg" alt="Victoria Goliber">
+												</div>
+												<h4 class="accordion-title">Invited talk by <b>...</b></h4>
+											</a>
+										</li>
+                                        <li>
+											<a class="accordion-heading">
+												<span class="schedule-time accent">
+													17<sup>45</sup>
+												</span>
+												<h4 class="accordion-title">Panel Discussion and Closing Remarks</h4>
+											</a>
+                                            <div class="accordion-body">
+												<p>
+													Untill next time!
+												</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--==========-->
+
+			
+			<!--===============================-->
+			<!--== Papers ===================-->
+			<!--===============================-->
+			<section id="papers">
+				<div class="row">
+					<div class="col-sm-12 col-md-2">
+						<div class="section-header text-left">
+							<h2><b>Poster Session</b></h2>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-10" style="margin-top: 20px;">
+						<h4>We collected recent papers that target the computer vision community and are relevant to the field.</h4>
+
+						<!--<h4>The following works have previously been <b>published</b> and peer-revieweed at major computer vision and machine learning conferences.</h4>-->
+
+						<!-- Paper 9 -->
+						<div class="paper">
+							<div class="paper-image">
+								<a href="papers/slide/slide_placeholder_white.jpg" target="_blank">
+									<img src="papers/slide/slide_placeholder_white.jpg" alt="Paper 1 Image">
+								</a>
+							</div>
+							<div class="paper-details">
+								<h4><a href="https://arxiv.org/abs/2206.00606" target="_blank">Topological Deep Learning: Going Beyond Graph Data</a></h4>
+								<p><b>Authors</b>: Mustafa Hajij, Ghada Zamzmi, Theodore Papamarkou, Nina Miolane, Aldo Guzmán-Sáenz, Karthikeyan Natesan Ramamurthy, Tolga Birdal, Tamal K. Dey, Soham Mukherjee, Shreyas N. Samaga, Neal Livesay, Robin Walters, Paul Rosen, Michael T. Schaub</p>
+							</div>
+						</div>
+
+						<!-- Paper 10 -->
+						<div class="paper">
+							<div class="paper-image">
+								<a href="papers/slide/slide_placeholder_white.jpg" target="_blank">
+									<img src="papers/slide/slide_placeholder_white.jpg" alt="Paper 2 Image">
+								</a>
+							</div>
+							<div class="paper-details">
+								<h4><a href="https://arxiv.org/abs/2304.10031" target="_blank">Architectures of Topological Deep Learning: A Survey on Topological Neural Networks</a></h4>
+								<p><b>Authors</b>: Mathilde Papillon, Sophia Sanborn, Mustafa Hajij, Nina Miolane</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!--==========-->
+			<!--==========-->
+
+            <section id="organizers" class="wow bounceInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="section-header text-center">
+							<h2><b>Organizers</b></h2>
+							<p>Here are the diligent people behind TDL4CV 2024.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/tolga-birdal.jpeg" alt="Tolga Birdal">
+							<div class="speaker-info">
+								<h3><b>Tolga</b><br> Birdal</h3>
+								<p>Assistant Professor<br> Imperial College London</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="http://tolgabirdal.github.io" class="fa fa-home"></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/tbirdal/" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="https://twitter.com/tolga_birdal" class="fa fa-twitter"></a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/mustafa-hajij.jpg" alt="Mustafa Hajij">
+							<div class="speaker-info">
+								<h3><b>Mustafa</b><br> Hajij</h3>
+								<p>Assistant Professor<br> University of San Francisco </p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://www.mustafahajij.com/" class="fa fa-home"></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/mustafa-hajij/" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="https://twitter.com/HajijMustafa" class="fa fa-twitter"></a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/michael-schaub.jpg" alt="Michael Schaub">
+							<div class="speaker-info">
+								<h3><b>Michael</b><br> Schaub</h3>
+								<p>Assistant Professor<br> RWTH Aachen University</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://michaelschaub.github.io/" class="fa fa-home"></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/michael-schaub-5659ab279/" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="https://twitter.com/michaelschaub" class="fa fa-twitter"></a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/theo-papa.jpg" alt="Theodore Papamarkou">
+							<div class="speaker-info">
+								<h3><b>Theodore</b><br> Papamarkou</h3>
+								<p>Professor<br> The University of Manchester</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://www.theopapamarkou.com/" class="fa fa-home"></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/papamarkou/" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="https://twitter.com/theopapamarkou" class="fa fa-twitter"></a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/karthik-rama.jpg" alt="Karthikeyan Natesan Ramamurthy">
+							<div class="speaker-info">
+								<h3><b>Karthikeyan</b><br> Natesan Ramamurthy</h3>
+								<p>Principal Research Scientist<br> IBM Research - Yorktown Heights, USA</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://research.ibm.com/people/karthikeyan-natesan-ramamurthy" class="fa fa-home"></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/karthikeyan-natesan-ramamurthy-3b808312/" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="https://twitter.com/nrkarthikeyan" class="fa fa-twitter"></a></li>
+							</ul>
+						</div>
+					</div>
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/nina-miolane.jpg" alt="Nina Miolane">
+							<div class="speaker-info">
+								<h3><b>Nina</b><br> Miolane</h3>
+								<p>Assistant Professor<br> UC Santa Barbara</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://www.ninamiolane.com/" class="fa fa-home"></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/ninamiolane" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="https://twitter.com/ninamiolane" class="fa fa-twitter"></a></li>
+							</ul>
+						</div>
+					</div>
+                    
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/ghada-zamzmi.jpg" alt="Ghada Zamzmi">
+							<div class="speaker-info">
+								<h3><b>Ghada</b><br> Zamzmi</h3>
+								<p>Staff Scientist<br> FDA's Center for Devices and Radiological Health (CDRH)</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://lhncbc.nlm.nih.gov/LHC-personnel/staff/GhadaZamzmiAlzamzmi.html" class="fa fa-home"></a></li>
+							</ul>
+						</div>
+					</div>
+                    
+                    <div class="col-sm-6 col-md-3 ">
+						<div class="speaker">
+							<img src="images/demo/organizers/claudio-battiloro.jpg" alt="Claudio Battiloro">
+							<div class="speaker-info">
+								<h3><b>Claudio</b><br> Battiloro</h3>
+								<p>Postdoctoral Fellow<br> Harvard University</p>
+							</div>
+							<ul class="speaker-contacts">
+								<li><a target="_blank" href="https://www.ninamiolane.com/" class="fa fa-home"></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/claudio-battiloro-b4390b175/en" class="fa fa-linkedin"></a></li>
+                                <li><a target="_blank" href="https://www.hsph.harvard.edu/nsaph/people/claudio-battiloro/" class="fa fa-twitter"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--==========-->
+			
+			
+			<!--===============================-->
+			<!--== FAQ & Testimonials =========-->
+			<!--===============================-->
+			<section id="faq" class="wow bounceInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-header text-left">
+							<h2><b>FAQ</b></h2>
+							<!--<p>Awesome section description goes here.</p>-->
+						</div>
+						<ul class="accordion">
+							<li>
+								<a class="accordion-heading">
+									<h4 class="accordion-title">Why arrange a TDL4CV workshop now and why should I attend?</h4>
+								</a>
+								<div class="accordion-body">
+									<p>
+										A small community in Topological Deep Learning has formed over the last years and is steadily growing. The applications of this new technology to computer vision is very exciting. With TDL methods advancing, we believe that the time is right to show the potential in computer vision and to bring together researchers from both fields. 
+									</p>
+									<p>
+										Attending the workshop is a great opportunity to gain a glimpse on the basics in learning higher order relationships. Furthermore, invited talks from academia and industry will give an overview of the current developments of the field and our poster session will give you the opportunity to see the current state-of-the-art collected in one place.
+									</p>
+								</div>
+							</li>
+							<li>
+								<a class="accordion-heading">
+									<h4 class="accordion-title">Is the workshop fully in-person?</h4>
+								</a>
+								<div class="accordion-body">
+									<p>
+										Yes, TDL4CV will be held fully in-person on 17. June at CVPR 2024. While there will be no live streaming, we will record the talks and make them available on the website. Furthermore, an extended version of the poster session will be presented on the website.
+									</p>
+								</div>
+							</li>
+							<li>
+								<a class="accordion-heading">
+									<h4 class="accordion-title">Does TDL4CV accept paper submissions?</h4>
+								</a>
+								<div class="accordion-body">
+									<p>
+										No. Topological deep learning is a very new area and we are hoping to solicit papers in the next versions of this workshop.</a>
+									</p>
+								</div>
+							</li>
+							<li>
+								<a class="accordion-heading">
+									<h4 class="accordion-title">How have the posters been selected?</h4>
+								</a>
+								<div class="accordion-body">
+									<p>
+										The poster session comprises papers previously peer-reviewed and published at major Computer Vision or Machine Learning conferences, focusing on topics closely related to bridge topological machine/deep learning with vision. In addition to this, technical reports that show work-in-progress by researches that previously published in the field of TDL4CV are also presented. These works will be clearly indicated as such.
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<!--==========-->
+
+
+
+			<!--===============================-->
+			<!--== News =======================-->
+			<!--===============================-->
+			
+<section id="news" class="wow bounceInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-header text-left">
+							<h2>Latest <b>news</b></h2>
+							<p>Follow the recent hapennings here.</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="news-list">
+							<li class="news">
+								<span class="news-date">Feb 04</span>
+								<a href=""><h4>TDL4CV is up and running!</h4></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+
+			<!--===============================-->
+			<!--== Location ===================-->
+			<!--===============================-->
+			<section id="location" class="wow bounceInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+				<div class="row">
+					<!--<div class="col-sm-12 col-md-7">
+						<div class="map fit-left">
+							<div id="map-canvas"></div>
+						</div>
+					</div>-->
+					<div class="col-sm-12 col-md-5">
+						<h2>TDL4CV 2024 <b>Venue &amp; Contact</b></h2>
+						<ul class="contact">
+							<li class="contact-info">
+								<em class="fa fa-map-marker"></em>
+								<span>Seattle Convention Center, United States</span>
+							</li>
+							<li class="contact-info">
+								<em class="fa fa-envelope"></em>
+								<span>E-mail : tbirdal@imperial.ac.uk</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<!--==========-->
+ 
+
+			<!--===============================-->
+			<!--== Subscribe & Register =======-->
+			<!--===============================-->
+<!--
+			<section id="register" class="wow bounceInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+				<div class="row">
+					<div class="col-sm-12 col-md-6">
+						<div class="section-header text-left">
+							<h2><b>Subscribe</b></h2>
+							<p>Awesome section description goes here.</p>
+						</div>
+						<form id="subscribe-form" method="post" class="form">
+							<input name="name" id="sname" type="text" placeholder="Name" required>
+							<input name="email" id="smail" type="email" placeholder="Email" required>
+							<button type="submit" name="submit" class="button button-active">Subscribe</button>
+						</form>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="section-header text-left">
+							<h2><b>Register</b></h2>
+							<p>Awesome section description goes here.</p>
+						</div>
+						<form id="register-form" method="post" class="form">
+							<input name="name" id="name" type="text" placeholder="Name" required>
+							<input name="email" id="email" type="email" placeholder="Email" required>
+							<input name="telephone" id="telephone" type="tel" placeholder="Telephone">
+							<select name="ticket" id="ticket">
+								<option value="Silver">Silver</option>
+								<option value="Gold">Gold</option>
+								<option value="Platinum">Platinum</option>
+							</select>
+							<button type="submit" name="submit" class="button button-active">Register</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<!--==========-->
+
+
+
+			<!--===============================-->
+			<!--== Footer =====================-->
+			<!--===============================-->
+			<footer id="footer" class="footer">
+				<div class="row">
+					<div class="col-sm-8">
+
+						<!--== Social Icons ==-->
+						<!--<ul class="social-icons">
+							<li><a href="#" class="fa fa-facebook"></a></li>
+							<li><a href="#" class="fa fa-twitter"></a></li>
+							<li><a href="#" class="fa fa-youtube"></a></li>
+							<li><a href="#" class="fa fa-linkedin"></a></li>
+						</ul>
+-->
+					</div>
+					<div class="col-sm-4 text-right">
+						<div class="copyrights">All Rights Reserved. © 2024 </div>
+					</div>
+				</div>
+			</footer>
+			<!--==========-->
+
+		</div>
+-->
+
+		<!--== Javascript Files == -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkfd6lnBScNoinQtJvGAFwQd1W4CUH_PQ"></script>
+		<script src="js/jquery-2.1.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/SmoothScroll.min.js"></script>
+		<script src="js/typed.js"></script>
+		<script src="js/jquery.nav.js"></script>
+		<script src="js/jquery.stellar.js"></script>
+		<script src="js/jquery.flexslider-min.js"></script>
+		<script src="js/jquery.placeholder.js"></script>
+		<script src="js/jquery.accordion.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/fancySelect.js"></script>
+		<script src="js/wow.min.js"></script>
+		<script src="js/gmap3.min.js"></script>
+		<script src="js/main.min.js"></script>
+	</body>
+</html>

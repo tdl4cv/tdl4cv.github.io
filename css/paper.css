@@ -1,0 +1,23 @@
+/*
+/ CSS for paper block
+*/
+
+.paper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.paper-image {
+    flex: 0 0 300px;
+    margin-right: 10px;
+}
+
+.paper-image img {
+    width: 100%;
+    height: auto;
+}
+
+.paper-details {
+    flex: 1;
+}
