@@ -1,8 +1,8 @@
 (function ($) {
     "use strict";
 
-    var venueAddress = "1055 Canada Pl, Vancouver, BC V6C 0C3, Canada", // Venue Address
-        eventInfo = ["Vancouver, Canada", "18 June 2017"]; // Event Info
+    var venueAddress = "The Seattle Convention Center - Seattle, WA", // Venue Address
+        eventInfo = ["Jun 17, 2024", "..."]; // Event Info
 
     var fn = {
 
