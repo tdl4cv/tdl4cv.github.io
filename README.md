@@ -1,4 +1,4 @@
-# usm3d.github.io
+# tdl4cv.github.io
 
-1st Workshop on Urban Scene Modeling: Where Vision Meets Photogrammetry and Graphics
+1st Workshop on Topological Deep Learning for Computer Vision
 in Conjunction with CVPR 2024
